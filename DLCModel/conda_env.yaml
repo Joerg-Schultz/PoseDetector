@@ -14,7 +14,7 @@
 
 ### Additions
 # MLFlow
-# DVC
+# DVC (gdrive, change if you want to use other storage)
 
 ###
 # install:    conda env create -f conda_env.yaml
@@ -37,4 +37,4 @@ dependencies:
     - "deeplabcut[gui,tf]"
     - mlflow
   - nb_conda
-  - dvc
+  - dvc-gdrive
