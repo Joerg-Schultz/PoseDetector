@@ -1,0 +1,140 @@
+2023-03-09 14:28:47 Config:
+{'all_joints': [[0], [1], [2], [3], [4], [5]],
+ 'all_joints_names': ['Neck',
+                      'Tailset',
+                      'LeftFrontPaw',
+                      'RightFrontPaw',
+                      'leftBackPaw',
+                      'RightBackPaw'],
+ 'alpha_r': 0.02,
+ 'apply_prob': 0.5,
+ 'batch_size': 1,
+ 'contrast': {'clahe': True,
+              'claheratio': 0.1,
+              'histeq': True,
+              'histeqratio': 0.1},
+ 'convolution': {'edge': False,
+                 'emboss': {'alpha': [0.0, 1.0], 'strength': [0.5, 1.5]},
+                 'embossratio': 0.1,
+                 'sharpen': False,
+                 'sharpenratio': 0.3},
+ 'crop_pad': 0,
+ 'cropratio': 0.4,
+ 'dataset': 'training-datasets/iteration-0/UnaugmentedDataSet_DLCModelMar9/DLCModel_Joerg95shuffle1.mat',
+ 'dataset_type': 'imgaug',
+ 'decay_steps': 30000,
+ 'deterministic': False,
+ 'display_iters': 1000,
+ 'fg_fraction': 0.25,
+ 'global_scale': 0.8,
+ 'init_weights': '/home/binf009/anaconda3/envs/PoseDetectorDLCModel/lib/python3.8/site-packages/deeplabcut/pose_estimation_tensorflow/models/pretrained/resnet_v1_50.ckpt',
+ 'intermediate_supervision': False,
+ 'intermediate_supervision_layer': 12,
+ 'location_refinement': True,
+ 'locref_huber_loss': True,
+ 'locref_loss_weight': 0.05,
+ 'locref_stdev': 7.2801,
+ 'log_dir': 'log',
+ 'lr_init': 0.0005,
+ 'max_input_size': 1500,
+ 'mean_pixel': [123.68, 116.779, 103.939],
+ 'metadataset': 'training-datasets/iteration-0/UnaugmentedDataSet_DLCModelMar9/Documentation_data-DLCModel_95shuffle1.pickle',
+ 'min_input_size': 64,
+ 'mirror': False,
+ 'multi_stage': False,
+ 'multi_step': [[0.005, 10000],
+                [0.02, 430000],
+                [0.002, 730000],
+                [0.001, 1030000]],
+ 'net_type': 'resnet_50',
+ 'num_joints': 6,
+ 'optimizer': 'sgd',
+ 'pairwise_huber_loss': False,
+ 'pairwise_predict': False,
+ 'partaffinityfield_predict': False,
+ 'pos_dist_thresh': 17,
+ 'project_path': '/home/binf009/projects/PoseDetector/DLCModel/DLCModel-Joerg-2023-03-09',
+ 'regularize': False,
+ 'rotation': 25,
+ 'rotratio': 0.4,
+ 'save_iters': 50000,
+ 'scale_jitter_lo': 0.5,
+ 'scale_jitter_up': 1.25,
+ 'scoremap_dir': 'test',
+ 'shuffle': True,
+ 'snapshot_prefix': '/home/binf009/projects/PoseDetector/DLCModel/DLCModel-Joerg-2023-03-09/dlc-models/iteration-0/DLCModelMar9-trainset95shuffle1/train/snapshot',
+ 'stride': 8.0,
+ 'weigh_negatives': False,
+ 'weigh_only_present_joints': False,
+ 'weigh_part_predictions': False,
+ 'weight_decay': 0.0001}
+2023-03-09 14:29:06 iteration: 1000 loss: 0.0532 lr: 0.005
+2023-03-09 14:29:18 iteration: 2000 loss: 0.0394 lr: 0.005
+2023-03-09 14:29:30 iteration: 3000 loss: 0.0335 lr: 0.005
+2023-03-09 14:29:42 iteration: 4000 loss: 0.0302 lr: 0.005
+2023-03-09 14:29:54 iteration: 5000 loss: 0.0261 lr: 0.005
+2023-03-09 14:30:06 iteration: 6000 loss: 0.0235 lr: 0.005
+2023-03-09 14:30:17 iteration: 7000 loss: 0.0221 lr: 0.005
+2023-03-09 14:30:29 iteration: 8000 loss: 0.0204 lr: 0.005
+2023-03-09 14:30:41 iteration: 9000 loss: 0.0184 lr: 0.005
+2023-03-09 14:30:53 iteration: 10000 loss: 0.0174 lr: 0.005
+2023-03-09 14:31:05 iteration: 11000 loss: 0.0236 lr: 0.02
+2023-03-09 14:31:17 iteration: 12000 loss: 0.0195 lr: 0.02
+2023-03-09 14:31:29 iteration: 13000 loss: 0.0174 lr: 0.02
+2023-03-09 14:31:40 iteration: 14000 loss: 0.0158 lr: 0.02
+2023-03-09 14:31:52 iteration: 15000 loss: 0.0147 lr: 0.02
+2023-03-09 14:32:04 iteration: 16000 loss: 0.0134 lr: 0.02
+2023-03-09 14:32:16 iteration: 17000 loss: 0.0131 lr: 0.02
+2023-03-09 14:32:28 iteration: 18000 loss: 0.0125 lr: 0.02
+2023-03-09 14:32:40 iteration: 19000 loss: 0.0116 lr: 0.02
+2023-03-09 14:32:52 iteration: 20000 loss: 0.0113 lr: 0.02
+2023-03-09 14:33:03 iteration: 21000 loss: 0.0107 lr: 0.02
+2023-03-09 14:33:15 iteration: 22000 loss: 0.0105 lr: 0.02
+2023-03-09 14:33:27 iteration: 23000 loss: 0.0100 lr: 0.02
+2023-03-09 14:33:39 iteration: 24000 loss: 0.0101 lr: 0.02
+2023-03-09 14:33:51 iteration: 25000 loss: 0.0099 lr: 0.02
+2023-03-09 14:34:03 iteration: 26000 loss: 0.0095 lr: 0.02
+2023-03-09 14:34:14 iteration: 27000 loss: 0.0095 lr: 0.02
+2023-03-09 14:34:26 iteration: 28000 loss: 0.0093 lr: 0.02
+2023-03-09 14:34:38 iteration: 29000 loss: 0.0093 lr: 0.02
+2023-03-09 14:34:50 iteration: 30000 loss: 0.0089 lr: 0.02
+2023-03-09 14:35:47 Config:
+{'all_joints': [[0], [1], [2], [3], [4], [5]],
+ 'all_joints_names': ['Neck',
+                      'Tailset',
+                      'LeftFrontPaw',
+                      'RightFrontPaw',
+                      'leftBackPaw',
+                      'RightBackPaw'],
+ 'batch_size': 1,
+ 'crop_pad': 0,
+ 'dataset': 'training-datasets/iteration-0/UnaugmentedDataSet_DLCModelMar9/DLCModel_Joerg95shuffle1.mat',
+ 'dataset_type': 'imgaug',
+ 'deterministic': False,
+ 'fg_fraction': 0.25,
+ 'global_scale': 0.8,
+ 'init_weights': '/home/binf009/anaconda3/envs/PoseDetectorDLCModel/lib/python3.8/site-packages/deeplabcut/pose_estimation_tensorflow/models/pretrained/resnet_v1_50.ckpt',
+ 'intermediate_supervision': False,
+ 'intermediate_supervision_layer': 12,
+ 'location_refinement': True,
+ 'locref_huber_loss': True,
+ 'locref_loss_weight': 1.0,
+ 'locref_stdev': 7.2801,
+ 'log_dir': 'log',
+ 'mean_pixel': [123.68, 116.779, 103.939],
+ 'mirror': False,
+ 'net_type': 'resnet_50',
+ 'num_joints': 6,
+ 'optimizer': 'sgd',
+ 'pairwise_huber_loss': True,
+ 'pairwise_predict': False,
+ 'partaffinityfield_predict': False,
+ 'regularize': False,
+ 'scoremap_dir': 'test',
+ 'shuffle': True,
+ 'snapshot_prefix': '/home/binf009/projects/PoseDetector/DLCModel/DLCModel-Joerg-2023-03-09/dlc-models/iteration-0/DLCModelMar9-trainset95shuffle1/test/snapshot',
+ 'stride': 8.0,
+ 'weigh_negatives': False,
+ 'weigh_only_present_joints': False,
+ 'weigh_part_predictions': False,
+ 'weight_decay': 0.0001}

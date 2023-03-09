@@ -1,0 +1,3 @@
+model_checkpoint_path: "/home/binf009/projects/PoseDetector/DLCModel/DLCModel-Joerg-2023-03-09/dlc-models/iteration-0/DLCModelMar9-trainset95shuffle1/train/snapshot-30000"
+all_model_checkpoint_paths: "/home/binf009/projects/PoseDetector/DLCModel/DLCModel-Joerg-2023-03-09/dlc-models/iteration-0/DLCModelMar9-trainset95shuffle1/train/snapshot-15000"
+all_model_checkpoint_paths: "/home/binf009/projects/PoseDetector/DLCModel/DLCModel-Joerg-2023-03-09/dlc-models/iteration-0/DLCModelMar9-trainset95shuffle1/train/snapshot-30000"

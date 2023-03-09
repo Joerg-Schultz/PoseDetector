@@ -1,0 +1,22 @@
+all_joints:
+- - 0
+- - 1
+- - 2
+- - 3
+- - 4
+- - 5
+all_joints_names:
+- Neck
+- Tailset
+- LeftFrontPaw
+- RightFrontPaw
+- leftBackPaw
+- RightBackPaw
+dataset: training-datasets/iteration-0/UnaugmentedDataSet_DLCModelMar9/DLCModel_Joerg95shuffle1.mat
+global_scale: 0.8
+init_weights: /home/binf009/anaconda3/envs/PoseDetectorDLCModel/lib/python3.8/site-packages/deeplabcut/pose_estimation_tensorflow/models/pretrained/resnet_v1_50.ckpt
+location_refinement: true
+locref_stdev: 7.2801
+net_type: resnet_50
+num_joints: 6
+scoremap_dir: test
