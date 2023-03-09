@@ -19,10 +19,10 @@
 ###
 # install:    conda env create -f conda_env.yaml
 # update:     conda env update -f conda_env.yaml
-# activate:   conda activate POSE_DETECTOR
+# activate:   conda activate PoseDetectorDLCModel
 # deactivate: conda deactivate
 
-name: POSE_DETECTOR
+name: PoseDetectorDLCModel
 channels:
   - conda-forge
   - defaults
@@ -34,7 +34,7 @@ dependencies:
   - pip:
     - PyQt6
     - jupyter
-    - "deeplabcut[gui,tf]"
+    - "deeplabcut[gui,tf]==2.3.0"
     - mlflow
+    - dvc-gdrive
   - nb_conda
-  - dvc-gdrive
