@@ -1,0 +1,4 @@
+scorer,,,Joerg,Joerg,Joerg,Joerg,Joerg,Joerg,Joerg,Joerg,Joerg,Joerg,Joerg,Joerg
+bodyparts,,,Neck,Neck,Tailset,Tailset,LeftFrontPaw,LeftFrontPaw,RightFrontPaw,RightFrontPaw,leftBackPaw,leftBackPaw,RightBackPaw,RightBackPaw
+coords,,,x,y,x,y,x,y,x,y,x,y,x,y
+labeled-data,testDogVideo_raw,img0149.png,159.58263395637834,54.30205585579451,121.36440692105671,113.17878399128998,160.61555901138703,115.76109662881171,173.01065967149134,122.99157201387254,153.90154615383054,116.7940216838204,159.58263395637834,124.02449706888123
