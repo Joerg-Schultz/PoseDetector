@@ -1,2 +1,3 @@
 /videos
-/DLCModel-Joerg-2023-03-08/videos
+/DLCModel-*/videos
+/DLCModel-*/labeled-data/*/*.png
