@@ -46,7 +46,7 @@ skeleton:
 
 skeleton_color: green
 pcutoff: 0.6
-dotsize: 12
+dotsize: 5
 alphavalue: 0.7
 colormap: rainbow
 
