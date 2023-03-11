@@ -1,3 +1,4 @@
 /videos
 /DLCModel-*/videos
+/DLCModel-*/exported-models
 /DLCModel-*/labeled-data/*/*.png
