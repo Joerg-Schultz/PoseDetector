@@ -1,0 +1,41 @@
+data_version: 'dv1_rv1_mv1'
+videos:
+  - video:
+    file: 'testDogVideo_raw.avi'
+    annotations:
+      - {start: 0, end: 57, annotation: 'Unknown'}
+      - {start: 61, end: 114, annotation: 'Stand'}
+      - {start: 116, end: 120, annotation: 'Stand'}
+      - {start: 125, end: 183, annotation: 'Sit'}
+      - {start: 186, end: 207, annotation: 'Unknown'}
+      - {start: 215, end: 257, annotation: 'Down'}
+      - {start: 261, end: 264, annotation: 'Unknown'}
+      - {start: 269, end: 294, annotation: 'Stand'}
+      - {start: 301, end: 303, annotation: 'Unknown'}
+      - {start: 309, end: 348, annotation: 'Sit'}
+      - {start: 352, end: 378, annotation: 'Unknown'}
+      - {start: 393, end: 440, annotation: 'Stand'}
+      - {start: 448, end: 453, annotation: 'Unknown'}
+      - {start: 458, end: 496, annotation: 'Sit'}
+      - {start: 507, end: 547, annotation: 'Stand'}
+      - {start: 549, end: 552, annotation: 'Unknown'}
+      - {start: 555, end: 613, annotation: 'Sit'}
+      - {start: 623, end: 670, annotation: 'Down'}
+      - {start: 702, end: 751, annotation: 'Unknown'}
+      - {start: 753, end: 805, annotation: 'Stand'}
+      - {start: 819, end: 838, annotation: 'Sit'}
+      - {start: 840, end: 845, annotation: 'Unknown'}
+      - {start: 850, end: 883, annotation: 'Down'}
+      - {start: 855, end: 968, annotation: 'Unknown'}
+      - {start: 984, end: 1049, annotation: 'Stand'}
+      - {start: 1061, end: 1065, annotation: 'Sit'}
+      - {start: 1072, end: 1083, annotation: 'Unknown'}
+      - {start: 1085, end: 1094, annotation: 'Down'}
+      - {start: 1096, end: 1180, annotation: 'Unknown'}
+      - {start: 1187, end: 1209, annotation: 'Stand'}
+      - {start: 1210, end: 1217, annotation: 'Unknown'}
+      - {start: 1219, end: 1240, annotation: 'Down'}
+      - {start: 1241, end: 1246, annotation: 'Unknown'}
+      - {start: 1251, end: 1260, annotation: 'Unknown'}
+      - {start: 1284, end: 1389, annotation: 'Unknown'}
+  - video:
