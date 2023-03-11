@@ -1,0 +1,5 @@
+outs:
+- md5: 4a69d7076cd42a2499395942c24f8565.dir
+  size: 372696334
+  nfiles: 7
+  path: exported-models
