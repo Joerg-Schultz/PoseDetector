@@ -1,0 +1,23 @@
+# conda environment for training Pose Model
+
+#
+# To activate this environment, use
+#
+#     $ conda activate PoseDetectorCameraClient
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+# have to mix conda and pip, as the conda resolver isn't able to finish
+
+name: PoseDetectorCameraClient
+channels:
+   - conda-forge
+   - defaults
+dependencies:
+   - python=3.8
+   - pip
+   - pip:
+       - opencv-contrib-python
+       - imagezmq
