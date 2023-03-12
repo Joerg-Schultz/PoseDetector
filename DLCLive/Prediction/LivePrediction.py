@@ -2,11 +2,9 @@ from dlclive import DLCLive, Processor
 import numpy as np
 import imagezmq
 import cv2
-import tensorflow as tf
 from enum import Enum
 import yaml
-import mlflow.pyfunc
-import sys  # TODO remove after debugging
+import mlflow.keras
 
 with open("prediction_conf.yaml", 'r') as file:
     settings = yaml.safe_load(file)
@@ -27,11 +25,12 @@ video_file_raw = '/home/binf009/tmp/testDogVideo_raw.avi'
 model_name = settings["registry_model_name"]
 stage = settings["registry_model_stage"]
 mlflow.set_tracking_uri("file:///home/binf009/projects/PoseDetector/DLCLive/Training/mlruns")
-position_model = mlflow.pyfunc.load_model(model_uri=f"models:/{model_name}/{stage}")
+position_model = mlflow.keras.load_model(model_uri=f"models:/{model_name}/{stage}")
 
 # DLC Model
 dlc_experiment = settings["dlc_experiment"]
 dlc_model_name = settings["dlc_model"]
+
 
 class Position(Enum):
     STAND = "Stand"
@@ -42,10 +41,10 @@ class Position(Enum):
 
 class MyProcessor(Processor):
     def process(self, pose, **kwargs):
-        global positionModel, predicted_position, smoothing_list, smoothing_factor, poseFileHandle, time_stamp
+        global position_model, predicted_position, smoothing_list, smoothing_factor, poseFileHandle, time_stamp
         flattenedPose = list(np.concatenate(pose).flat)
         poseString = "\t".join(list(map(str, flattenedPose)))
-        down, sit, stand, unknown = positionModel.predict(np.array([flattenedPose]), verbose=0)[0]
+        down, sit, stand, unknown = position_model.predict(np.array([flattenedPose]), verbose=0)[0]
         poseFileHandle.write(f"{time_stamp}\t{poseString}\t{down}\t{sit}\t{stand}\n")
         if down > cutoff:
             current_position = Position.DOWN
