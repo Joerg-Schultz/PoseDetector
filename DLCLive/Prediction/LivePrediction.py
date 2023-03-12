@@ -4,17 +4,26 @@ import imagezmq
 import cv2
 import tensorflow as tf
 from enum import Enum
+from dvc.api import DVCFileSystem
+import yaml
+import sys # TODO remove after debugging
 
-videoWidth = 320
-videoHeight = 180
+with open("prediction_conf.yaml", 'r') as file:
+    settings = yaml.safe_load(file)
+data_version = settings["data_version"]
+videoWidth = settings["video"]["width"]
+videoHeight = settings["video"]["height"]
+cutoff = settings["cutoff"]
+smoothing_factor = settings["smoothing_factor"]
+recording_framerate = settings["recording_framerate"]
+
+# TODO add this to settings and add date time to file name
 videoFile = '/home/binf009/tmp/testDogVideo.avi'
 poseFile = '/home/binf009/tmp/testDogPose.txt'
 video_file_raw = '/home/binf009/tmp/testDogVideo_raw.avi'
+# TODO read this via mlflow
+# does this work directly via the run id? even if in other dir? else use registry! (would be cooler anyways)
 position_model_path = "/home/binf009/projects/positions/TFLearning/model/2/"
-cutoff = 0.7  # for tensorflow predictions
-smoothing_factor = 5  # take max predictions from smoothing_factor frames
-recording_framerate = 20  # adapt to transfer rate
-
 
 class Position(Enum):
     STAND = "Stand"
@@ -28,7 +37,7 @@ class MyProcessor(Processor):
         global positionModel, predicted_position, smoothing_list, smoothing_factor, poseFileHandle, time_stamp
         flattenedPose = list(np.concatenate(pose).flat)
         poseString = "\t".join(list(map(str, flattenedPose)))
-        down, sit, stand = positionModel.predict(np.array([flattenedPose]), verbose=0)[0]
+        down, sit, stand, unknown = positionModel.predict(np.array([flattenedPose]), verbose=0)[0]
         poseFileHandle.write(f"{time_stamp}\t{poseString}\t{down}\t{sit}\t{stand}\n")
         if down > cutoff:
             current_position = Position.DOWN
@@ -56,6 +65,10 @@ positionModel = tf.keras.models.load_model(position_model_path)
 image_hub = imagezmq.ImageHub()
 # DeepLabCut
 dlc_proc = MyProcessor()
+# TODO change to own model.
+dvc_fs = DVCFileSystem("..", rev = data_version)
+dvc_file_list = dvc_fs.find("/DLCModel/videos/", detail=False, dvc_only=True)
+sys.exit()
 dlc_model_path = "/home/binf009/projects/ModelZoo/DLC_Dog_resnet_50_iteration-0_shuffle-0/DLC_Dog_resnet_50_iteration" \
                  "-0_shuffle-0"
 dlc_live = DLCLive(dlc_model_path, processor=dlc_proc, display=True)

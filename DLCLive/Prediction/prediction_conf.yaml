@@ -1,0 +1,6 @@
+data_version: 'dv1_rv1_mv1'
+video: {height: 180, width: 320}
+cutoff: 0.7  # for tensorflow predictions
+smoothing_factor: 5  # take max predictions from smoothing_factor frames
+recording_framerate: 20  # adapt to transfer rate
+
