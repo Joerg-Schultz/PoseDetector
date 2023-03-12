@@ -1,0 +1,27 @@
+# conda environment for training Pose Model
+
+#
+# To activate this environment, use
+#
+#     $ conda activate PoseDetectorDLCLive_Prediction
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+# have to mix conda and pip, as the conda resolver isn't able to finish
+
+name: PoseDetectorDLCLive_Prediction
+channels:
+   - conda-forge
+   - defaults
+dependencies:
+   - python=3.7
+   - tensorflow
+   - pip
+   - numpy
+   - pip:
+     - deeplabcut-live
+     - opencv-contrib-python
+     - imagezmq
+     - mlflow
