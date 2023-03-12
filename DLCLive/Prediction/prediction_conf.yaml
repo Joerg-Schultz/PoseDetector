@@ -7,5 +7,6 @@ recording_framerate: 20  # adapt to transfer rate
 registry_model_name: "PoseClassification"
 registry_model_stage: "Production"
 
+dlc_experiment: "DLCModel-Joerg-2023-03-09"
 dlc_model: "DLC_DLCModel_resnet_50_iteration-0_shuffle-1"
 

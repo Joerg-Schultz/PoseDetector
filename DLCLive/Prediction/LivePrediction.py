@@ -4,7 +4,6 @@ import imagezmq
 import cv2
 import tensorflow as tf
 from enum import Enum
-from dvc.api import DVCFileSystem
 import yaml
 import mlflow.pyfunc
 import sys  # TODO remove after debugging
@@ -30,6 +29,9 @@ stage = settings["registry_model_stage"]
 mlflow.set_tracking_uri("file:///home/binf009/projects/PoseDetector/DLCLive/Training/mlruns")
 position_model = mlflow.pyfunc.load_model(model_uri=f"models:/{model_name}/{stage}")
 
+# DLC Model
+dlc_experiment = settings["dlc_experiment"]
+dlc_model_name = settings["dlc_model"]
 
 class Position(Enum):
     STAND = "Stand"
@@ -71,13 +73,7 @@ predicted_position = Position.UNKNOWN
 image_hub = imagezmq.ImageHub()
 # DeepLabCut
 dlc_proc = MyProcessor()
-# TODO change to own model.
-dvc_fs = DVCFileSystem("..", rev=data_version)
-dvc_file_list = dvc_fs.find("/DLCModel/exported_models", detail=False, dvc_only=True)
-print(dvc_file_list)
-sys.exit()
-dlc_model_path = "/home/binf009/projects/ModelZoo/DLC_Dog_resnet_50_iteration-0_shuffle-0/DLC_Dog_resnet_50_iteration" \
-                 "-0_shuffle-0"
+dlc_model_path = f"../../DLCModel/{dlc_experiment}/exported-models/{dlc_model_name}"
 dlc_live = DLCLive(dlc_model_path, processor=dlc_proc, display=True)
 # OpenCV
 size = (videoWidth, videoHeight)  # Can I get this from client?
