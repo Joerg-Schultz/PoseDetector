@@ -17,12 +17,13 @@ channels:
    - defaults
 dependencies:
    - python=3.8
-   - tensorflow # TODO same version as in Training, specify
    - pip
    - numpy
    - pip:
-     - deeplabcut-live
-     - opencv-contrib-python
-     - imagezmq
-     - mlflow
-     - dvc-gdrive
+       - tensorflow==2.11
+       - keras==2.11
+       - deeplabcut-live
+       - opencv-contrib-python
+       - imagezmq
+       - mlflow
+       - dvc-gdrive

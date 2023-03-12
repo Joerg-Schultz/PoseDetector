@@ -4,3 +4,8 @@ cutoff: 0.7  # for tensorflow predictions
 smoothing_factor: 5  # take max predictions from smoothing_factor frames
 recording_framerate: 20  # adapt to transfer rate
 
+registry_model_name: "PoseClassification"
+registry_model_stage: "Production"
+
+dlc_model: "DLC_DLCModel_resnet_50_iteration-0_shuffle-1"
+
