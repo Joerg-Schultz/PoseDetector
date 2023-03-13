@@ -5,6 +5,8 @@ import cv2
 from enum import Enum
 import yaml
 import mlflow.keras
+import os
+import time
 
 with open("prediction_conf.yaml", 'r') as file:
     settings = yaml.safe_load(file)
@@ -16,10 +18,14 @@ cutoff = settings["cutoff"]
 smoothing_factor = settings["smoothing_factor"]
 recording_framerate = settings["recording_framerate"]
 
-# TODO add this to settings and add date time to file name
-videoFile = '/home/binf009/tmp/testDogVideo.avi'
-poseFile = '/home/binf009/tmp/testDogPose.txt'
-video_file_raw = '/home/binf009/tmp/testDogVideo_raw.avi'
+video_dir = "./videos" if not "video_dir" in settings else settings["video_dir"]
+if not os.path.exists(video_dir):
+    os.makedirs(video_dir)
+
+time_string = time.strftime("%Y%m%d_%H%M%S")
+video_file = f"{video_dir}/poseVideo_{time_string}.avi"
+video_file_raw = f"{video_dir}/poseVideo_{time_string}_raw.avi"
+pose_file = f"{video_dir}/poseData_{time_string}.txt"
 
 # get model from MLFlow registry
 model_name = settings["registry_model_name"]
@@ -76,7 +82,7 @@ dlc_model_path = f"../../DLCModel/{dlc_experiment}/exported-models/{dlc_model_na
 dlc_live = DLCLive(dlc_model_path, processor=dlc_proc, display=True)
 # OpenCV
 size = (videoWidth, videoHeight)  # Can I get this from client?
-result = cv2.VideoWriter(videoFile,
+result = cv2.VideoWriter(video_file,
                          cv2.VideoWriter_fourcc(*'MJPG'),
                          recording_framerate,
                          size)
@@ -97,7 +103,7 @@ def save_to_video(frame, message):
 
 
 # start server and first prediction
-poseFileHandle = open(poseFile, "w")
+poseFileHandle = open(pose_file, "w")
 print(f"Starting with position {predicted_position.value}")
 time_stamp, jpg_buffer = image_hub.recv_jpg()
 image = cv2.imdecode(np.frombuffer(jpg_buffer, dtype='uint8'), -1)
@@ -118,6 +124,8 @@ while True:
     time_stamp = "%.2f" % time_stamp
     save_to_video(image, time_stamp)
 
-# ~/anaconda3/envs/DLCLive_py3.7/bin/dlc-live-benchmark
-# ../projects/ModelZoo/DLC_Dog_resnet_50_iteration-0_shuffle-0/DLC_Dog_resnet_50_iteration-0_shuffle-0
-# testDogVideo.avi --pcutoff 0.8 --display-radius 4 --cmap bmy --save-poses --save-video -r 1
+# ~/anaconda3/envs/PoseDetectorDLCLive_Prediction/bin/dlc-live-benchmark
+# ../../DLCModel/DLCModel-Joerg-2023-03-09/exported-models/DLC_DLCModel_resnet_50_iteration-0_shuffle-1
+# ~/tmp/testDogVideo_raw.avi --pcutoff 0.7 --display-radius 4 --cmap bmy --save-poses --save-video
+# -r 1 -n 10000
+
