@@ -19,9 +19,11 @@ dependencies:
    - python=3.8
    - pip
    - numpy
+   - ffmpeg
    - pip:
        - tensorflow==2.11
        - keras==2.11
+       - deeplabcut==2.3.0
        - deeplabcut-live
        - opencv-contrib-python
        - imagezmq
