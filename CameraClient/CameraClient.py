@@ -9,10 +9,11 @@ width = 320
 height = 180
 recording_width = 1280
 recording_height = 720
-frame_rate = 30
+frame_rate = 20
 jpeg_quality = 75  # 0 to 100, higher is better quality, 95 is cv2 default
 useJPEG = True
-file_name = "recording.avi"
+time_string = time.strftime("%Y%m%d_%H%M%S")
+file_name = f"poseVideoLarge_{time_string}.avi"
 # sender = imagezmq.ImageSender(connect_to="tcp://192.168.178.44:5555")  # WLAN
 # sender = imagezmq.ImageSender(connect_to="tcp://192.168.178.55:5555")  # LAN
 sender = imagezmq.ImageSender(connect_to="tcp://132.187.198.63:5555")  # biomedsvm
